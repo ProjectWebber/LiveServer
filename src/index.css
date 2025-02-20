@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+	--font-specialelite: "SpecialElite", "sans-serif";
+
+	/*Dark Colors*/
+	--color-dark-header: #0e0e0e;
+	--color-dark-text: #f1f1f1;
+	--color-dark-text-disable: #8a8a8a;
+
+	--color-dark-bg-gradient-start: #030303;
+	--color-dark-bg-gradient-end: #1f1f1f;
+
+	--color-dark-prop-gradient-start: #8c8c8c;
+	--color-dark-prop-gradient-end: #1a1a1a;
+
+	/*Light Colors*/
+	--color-light-header: #e3e3e3;
+	--color-light-text: #121212;
+	--color-light-text-disable: #868686;
+
+	--color-light-bg-gradient-start: #f2f2f2;
+	--color-light-bg-gradient-end: #c2c2c2;
+
+	--color-light-prop-gradient-start: #212121;
+	--color-light-prop-gradient-end: #cccccc;
+
+	--color-discord: #7289da;
+	--color-golden: #ffdf00;
+	--color-catarse: #17A338;
+
+	--color-light-cta: #0E5D2A;
+	--color-dark-cta: #1FC057;
+
+	--animate-spin-slow: spin 290s linear infinite;
+}
+
+@font-face {
+	font-family: "SpecialElite";
+	font-style: normal;
+	font-weight: 4 00;
+	src: url("/fonts/specialelite.woff2") format("woff2");
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+	user-select: none;
+}
+
+.text-shadow {
+	text-shadow: 0px 0px 11px rgba(0, 0, 0, 0.62);
+}
+.shadow-button {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+	width: 0.6rem;
+	height: 0.6rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+	background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555;
+  }
+
+  img {
+	pointer-events: none
+  }
