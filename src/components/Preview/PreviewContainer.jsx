@@ -24,7 +24,7 @@ function PreviewContianer() {
 	}, [selectedProps]);
 
 	return (
-		<section className="relative h-full object-contain aspect-square">
+		<section className="relative h-full m-8 lg:m-0 object-contain aspect-square">
 			{previewFiller()}
 		</section>
 	);

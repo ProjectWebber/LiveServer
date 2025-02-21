@@ -6,9 +6,9 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 	const isChecked = useMemo(() => checkedItemId === id, [checkedItemId, id]);
 
 	const handleLableStyle = useCallback(() => {
-		let style = `relative block max-h-23 max-w-23 md:max-h-28 md:max-w-28 h-full aspect-square  rounded-2xl object-contain bg-linear-to-br transition-colors overflow-hidden
+		let style = `relative block max-h-23 max-w-23 md:max-h-28 md:max-w-28 h-full aspect-square  rounded-2xl object-contain bg-linear-to-br transition-colors overflow-hidden cursor-pointer
 				
-		from-light-prop-gradient-start/[15%] to-light-prop-gradient-end/[15%] dark:from-dark-prop-gradient-start/[15%] dark:to-dark-prop-gradient-end/[15%] cursor-pointer filter dark:invert`;
+		from-light-prop-gradient-start/[15%] to-light-prop-gradient-end/[15%] dark:from-dark-prop-gradient-start/[15%] dark:to-dark-prop-gradient-end/[15%]`;
 
 		const hoverStyle = ` hover:from-light-prop-gradient-start/[25%] hover:to-light-prop-gradient-end/[25%] dark:hover:from-dark-prop-gradient-start/[25%] dark:hover:to-dark-prop-gradient-end/[25%] `;
 
@@ -23,11 +23,11 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 	const handleImgStyle = useCallback(() => {
 		const categoryZoomStyle = {
 			corpos: "top-0 left-0 scale-[1]",
-			cabelos: "top-6 lg:top-7 left-3 scale-[1.7]",
-			sobrancelhas: "top-22 left-10 lg:top-25 lg:left-12 scale-[4]",
-			olhos: "top-19 left-10 lg:top-22 lg:left-11 scale-[4]",
-			narizes: "top-20 left-13 lg:top-23 lg:left-15 scale-[5]",
-			bocas: "top-11 left-12 lg:top-14 lg:left-15 scale-[5]",
+			cabelos: "top-6 lg:top-7 left-1 scale-[1.7]",
+			sobrancelhas: "top-22 left-8 lg:top-25 lg:left-10 scale-[4]",
+			olhos: "top-19 left-8 lg:top-22 lg:left-9 scale-[4]",
+			narizes: "top-18 left-11 lg:top-21 lg:left-13 scale-[5] filter dark:invert",
+			bocas: "top-9 left-10 lg:top-10 lg:left-13 scale-[5] filter dark:invert",
 			camisas: "-top-5 left-[0.8%] lg:-top-5 lg:left-[0.5%] scale-[1.2]",
 		};
 

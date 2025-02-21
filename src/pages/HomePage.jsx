@@ -4,7 +4,7 @@ function HomePage() {
 	const heroImageSrc = "/BetaTesting/home-image.avif";
 
 	return (
-		<section className="flex md:flex-row-reverse flex-col justify-center items-center h-full w-full px-6 md:p-18 gap-7 lg:gap-30">
+		<section className="flex md:flex-row-reverse flex-col justify-center items-center h-full w-full px-4 md:p-18 gap-7 lg:gap-30">
 			<img
 				src={heroImageSrc}
 				alt="Imagem ilustrativa dos personagens"

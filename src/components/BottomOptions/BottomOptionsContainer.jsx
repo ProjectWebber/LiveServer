@@ -1,15 +1,15 @@
-import useCanvas from "@hooks/useCanvas";
-import {useCustomizer} from "@contexts/CustomizerContext";
-
 import TextIconButton from "@components/Buttons/TextIconButton";
 import {HiOutlineDocumentDownload} from "react-icons/hi";
 
-function CanvasContainer() {
+import useCanvas from "@hooks/useCanvas";
+import {useCustomizer} from "@contexts/CustomizerContext";
+
+function BottomOptionsContainer() {
 	const {categories} = useCustomizer();
 	const {drawAndDownload} = useCanvas();
 
 	return (
-		<div className="z-50">
+		<div className="relative lg:absolute lg:bottom-5 lg:right-5 flex justify-end h-fit w-full">
 			<TextIconButton
 				text={"Download"}
 				icon={<HiOutlineDocumentDownload size="1.5rem" />}
@@ -19,4 +19,4 @@ function CanvasContainer() {
 	);
 }
 
-export default CanvasContainer;
+export default BottomOptionsContainer;

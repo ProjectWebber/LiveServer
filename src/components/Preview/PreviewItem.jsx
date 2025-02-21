@@ -8,7 +8,7 @@ function PreviewItem({src, alt, id}) {
 			id={id}
 			draggable={false}
 			crossOrigin="anonymous"
-			className="absolute top-0 left-0 w-full h-full aspect-square filter dark:invert"
+			className="absolute top-0 left-0 w-full h-full lg:w-[90%] lg:h-[90%] aspect-square"
 		/>
 	)
 }

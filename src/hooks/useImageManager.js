@@ -1,97 +1,104 @@
-import {Client, Storage} from "appwrite"
-import {useCallback, useEffect, useState, useMemo} from "react"
+import {Client, Storage} from "appwrite";
+import {useCallback, useEffect, useState, useMemo} from "react";
 
 // Configuração do Appwrite
-const PROJECT_ID = "679f73800036b0359b4f"
-const BUCKET_ID = "679f73d400156d7f9182"
+const PROJECT_ID = "67b909de0016b14256d8";
+const BUCKET_ID = "67b90a58001408625cc1";
 
-const client = new Client()
-client.setEndpoint("https://cloud.appwrite.io/v1").setProject(PROJECT_ID)
-const storage = new Storage(client)
+const client = new Client();
+client.setEndpoint("https://cloud.appwrite.io/v1").setProject(PROJECT_ID);
+
+const storage = new Storage(client);
 
 function useImageFetcher() {
-	const [images, setImages] = useState({})
+	const [images, setImages] = useState({});
 
 	useEffect(() => {
 		const getImages = async () => {
 			try {
-				const response = await storage.listFiles(BUCKET_ID)
+				const response = await storage.listFiles(BUCKET_ID);
 				setImages(
 					response.files.map((file) => {
-						let fileSrc = `https://cloud.appwrite.io/v1/storage/buckets/${BUCKET_ID}/files/${file['$id']}/view?project=${PROJECT_ID}`
-						return ({
+						let fileSrc = `https://cloud.appwrite.io/v1/storage/buckets/${BUCKET_ID}/files/${file["$id"]}/view?project=${PROJECT_ID}`;
+						return {
 							id: file.$id,
 							src: fileSrc,
-						})
-					})
-				)
+						};
+					}),
+				);
 			} catch (error) {
-				console.error("Erro ao buscar imagens:", error)
-				return []
+				console.error("Erro ao buscar imagens:", error);
+				return [];
 			}
-		}
+		};
 
-		getImages()
-	}, [])
+		getImages();
+	}, []);
 
-	return {images}
+	return {images};
 }
 
 function useImageCategorizer({images, categories}) {
-	const [organizedImages, setOrganizedImages] = useState({})
+	const [organizedImages, setOrganizedImages] = useState({});
 
 	const organize = useCallback(() => {
 		if (Object.keys(images).length != 0) {
-			let newObject = {}
-			const bodyImages = images.filter((image) => image.id.startsWith("corpos-"))
+			let newObject = {};
+			const bodyImages = images.filter((image) =>
+				image.id.startsWith("corpos-"),
+			);
 
-			newObject.corpos = bodyImages
+			newObject.corpos = bodyImages;
 
-			bodyImages.forEach(bodyImage => {
-				newObject[bodyImage.id] = {}
+			bodyImages.forEach((bodyImage) => {
+				newObject[bodyImage.id] = {};
 
-				categories.forEach(category => {
+				categories.forEach((category) => {
 					newObject[bodyImage.id][category] = images
-					.filter((image) => image.id.endsWith(bodyImage.id))
-					.filter((image) => image.id.startsWith(category))
-				})
+						.filter((image) => image.id.endsWith(bodyImage.id))
+						.filter((image) => image.id.startsWith(category));
+				});
 
-				setOrganizedImages(newObject)
-			})
-		} else return {}
-	}, [images])
+				setOrganizedImages(newObject);
+			});
+		} else return {};
+	}, [images]);
 
 	useEffect(() => {
-		organize()
-	}, [organize])
+		organize();
+	}, [organize]);
 
-	return {organizedImages}
+	return {organizedImages};
 }
 
 function useImageManager() {
-	const {images} = useImageFetcher()
+	const {images} = useImageFetcher();
 
 	const categories = useMemo(
 		() => [
 			"corpos",
-			"cabelos",
 			"sobrancelhas",
 			"olhos",
 			"narizes",
 			"bocas",
 			"camisas",
+			"cabelos",
 		],
-		[]
-	)
+		[],
+	);
 
-	const {organizedImages} = useImageCategorizer({images, categories})
+	const {organizedImages} = useImageCategorizer({images, categories});
 
 	const memoizedOrganizedImages = useMemo(
 		() => organizedImages,
-		[organizedImages]
-	)
+		[organizedImages],
+	);
 
-	return {images: memoizedOrganizedImages, categories}
+	useEffect(() => {
+		console.log(memoizedOrganizedImages);
+	}, []);
+
+	return {images: memoizedOrganizedImages, categories};
 }
 
-export default useImageManager
+export default useImageManager;

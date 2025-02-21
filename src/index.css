@@ -15,12 +15,12 @@
 	--color-dark-prop-gradient-end: #1a1a1a;
 
 	/*Light Colors*/
-	--color-light-header: #e3e3e3;
+	--color-light-header: #ebebeb;
 	--color-light-text: #121212;
 	--color-light-text-disable: #868686;
 
-	--color-light-bg-gradient-start: #f2f2f2;
-	--color-light-bg-gradient-end: #c2c2c2;
+	--color-light-bg-gradient-start: #fafafa;
+	--color-light-bg-gradient-end: #e0e0e0;
 
 	--color-light-prop-gradient-start: #212121;
 	--color-light-prop-gradient-end: #cccccc;

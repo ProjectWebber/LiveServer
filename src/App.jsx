@@ -21,18 +21,18 @@ function App() {
 			<SecretsProvider>
 				<MenuProvider>
 					<Router>
-						<LayoutContainer>
-							<Suspense fallback={<LoadingScreen />}>
+						<Suspense fallback={<LoadingScreen />}>
+							<LayoutContainer>
 								<Routes>
 									<Route Component={HomePage} path="/BetaTesting/" />
 									<Route
 										Component={CustomizerPage}
 										path="/BetaTesting/Customizer"
 									/>
-									<Route Component={TestPage} path="/BetaTesting/Testes" />
+									<Route Component={TestPage} path="/BetaTesting/TestPage" />
 								</Routes>
-							</Suspense>
-						</LayoutContainer>
+							</LayoutContainer>
+						</Suspense>
 					</Router>
 				</MenuProvider>
 			</SecretsProvider>
