@@ -1,4 +1,5 @@
 import {useCallback} from "react";
+import {AnimatePresence} from "motion/react";
 
 // Components
 import PreviewItem from "./PreviewItem";
@@ -10,13 +11,13 @@ function PreviewContianer() {
 	const {categories, selectedProps} = useCustomizer();
 
 	const previewFiller = useCallback(() => {
-		return categories.map((category, index) => {
+		return categories.map((category) => {
 			if (selectedProps[category].src === "") return;
 			return (
 				<PreviewItem
 					src={selectedProps[category].src}
 					alt={"imagem de um dos " + category + " selecionado"}
-					key={`preview-${index}`}
+					key={`${selectedProps[category].src}-${category}-preview`}
 					id={`preview-${category}`}
 				/>
 			);

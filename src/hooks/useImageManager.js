@@ -57,6 +57,14 @@ function useImageCategorizer({images, categories}) {
 					newObject[bodyImage.id][category] = images
 						.filter((image) => image.id.endsWith(bodyImage.id))
 						.filter((image) => image.id.startsWith(category));
+
+					if (category !== "corpos") {
+						const propVazio = {
+							id: "prop-vazio",
+							src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
+						};
+						newObject[bodyImage.id][category] = [propVazio, ...newObject[bodyImage.id][category]]
+					}
 				});
 
 				setOrganizedImages(newObject);
@@ -93,10 +101,6 @@ function useImageManager() {
 		() => organizedImages,
 		[organizedImages],
 	);
-
-	useEffect(() => {
-		console.log(memoizedOrganizedImages);
-	}, []);
 
 	return {images: memoizedOrganizedImages, categories};
 }

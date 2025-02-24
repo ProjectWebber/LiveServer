@@ -18,7 +18,7 @@ function TabContainer() {
 	} = useCustomizer()
 
 	return (
-		<motion.nav className="relative flex gap-6 lg:gap-7 pb-0 w-1/1 overflow-x-auto">
+		<motion.nav className="relative flex gap-6 lg:gap-8 lg:mb-2 w-1/1 overflow-x-auto">
 			{categories.map((category) => {
 				return (
 					<Tab

@@ -6,7 +6,6 @@
 	/*Dark Colors*/
 	--color-dark-header: #0e0e0e;
 	--color-dark-text: #f1f1f1;
-	--color-dark-text-disable: #8a8a8a;
 
 	--color-dark-bg-gradient-start: #030303;
 	--color-dark-bg-gradient-end: #1f1f1f;
@@ -17,7 +16,6 @@
 	/*Light Colors*/
 	--color-light-header: #ebebeb;
 	--color-light-text: #121212;
-	--color-light-text-disable: #868686;
 
 	--color-light-bg-gradient-start: #fafafa;
 	--color-light-bg-gradient-end: #e0e0e0;

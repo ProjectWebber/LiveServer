@@ -5,6 +5,7 @@ import {lazy, Suspense} from "react";
 const CustomizerPage = lazy(() => import("@pages/CustomizerPage"));
 const HomePage = lazy(() => import("@pages/HomePage"));
 const TestPage = lazy(() => import("@pages/TestPage"));
+const TestPageColorPackage = lazy(() => import("@pages/TestPageColorPackage"));
 
 // Components
 import LayoutContainer from "@components/Layout/LayoutContainer";
@@ -30,6 +31,7 @@ function App() {
 										path="/BetaTesting/Customizer"
 									/>
 									<Route Component={TestPage} path="/BetaTesting/TestPage" />
+									<Route Component={TestPageColorPackage} path="/BetaTesting/TestPageColorPackage" />
 								</Routes>
 							</LayoutContainer>
 						</Suspense>

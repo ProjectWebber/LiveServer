@@ -7,7 +7,7 @@ function Tab({id, text, setCheckedItems, checkedItemId}) {
 	return (
 		<label
 			htmlFor={id}
-			className="font-specialelite text-lg lg:text-2xl transition-colors text-light-text-disable has-checked:text-light-text dark:text-dark-text-disable has-checked:dark:text-dark-text cursor-pointer"
+			className="font-specialelite text-lg lg:text-2xl text-light-text opacity-40 hover:opacity-65 has-checked:opacity-100 dark:invert transition-all cursor-pointer"
 			draggable={false}
 		>
 			<input

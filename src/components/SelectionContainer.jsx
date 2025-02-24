@@ -27,7 +27,7 @@ function SelectionContainer() {
 							name={selectedCategory}
 							checkedItemId={selectedProps[selectedCategory].id}
 							setCheckedItems={setSelectedProp}
-							key={image.id}
+							key={image.src + `-grid-${selectedCategory}`}
 						/>
 					))
 				)}

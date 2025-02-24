@@ -9,7 +9,7 @@ function BottomOptionsContainer() {
 	const {drawAndDownload} = useCanvas();
 
 	return (
-		<div className="relative lg:absolute lg:bottom-5 lg:right-5 flex justify-end h-fit w-full">
+		<div className=" flex justify-end h-fit w-full">
 			<TextIconButton
 				text={"Download"}
 				icon={<HiOutlineDocumentDownload size="1.5rem" />}

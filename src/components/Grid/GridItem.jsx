@@ -1,19 +1,22 @@
 import PropTypes from "prop-types";
 import {useMemo, useCallback} from "react";
 import {motion} from "motion/react";
+import { PiXBold } from "react-icons/pi";
 
 function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 	const isChecked = useMemo(() => checkedItemId === id, [checkedItemId, id]);
 
 	const handleLableStyle = useCallback(() => {
-		let style = `relative block max-h-23 max-w-23 md:max-h-28 md:max-w-28 h-full aspect-square  rounded-2xl object-contain bg-linear-to-br transition-colors overflow-hidden cursor-pointer
+		let style = `relative flex justify-center items-center max-h-23 max-w-23 md:max-h-28 md:max-w-28 h-full aspect-square  rounded-2xl object-contain bg-linear-to-br transition-colors overflow-hidden cursor-pointer
 				
-		from-light-prop-gradient-start/[15%] to-light-prop-gradient-end/[15%] dark:from-dark-prop-gradient-start/[15%] dark:to-dark-prop-gradient-end/[15%]`;
+		from-light-prop-gradient-start/[20%] to-light-prop-gradient-end/[20%] 
+		dark:from-dark-prop-gradient-start/[20%] dark:to-dark-prop-gradient-end/[20%]`;
 
-		const hoverStyle = ` hover:from-light-prop-gradient-start/[25%] hover:to-light-prop-gradient-end/[25%] dark:hover:from-dark-prop-gradient-start/[25%] dark:hover:to-dark-prop-gradient-end/[25%] `;
+		const hoverStyle = ` hover:from-light-prop-gradient-start/[28%] hover:to-light-prop-gradient-end/[28%] 
+		dark:hover:from-dark-prop-gradient-start/[28%] dark:hover:to-dark-prop-gradient-end/[28%] `;
 
-		const checkedStyle = ` has-checked:from-light-prop-gradient-start/[44%] 
-		has-checked:to-light-prop-gradient-end/[44%] has-checked:dark:from-dark-prop-gradient-start/[44%] has-checked:dark:to-dark-prop-gradient-end/[44%]`;
+		const checkedStyle = ` has-checked:from-light-prop-gradient-start/[58%] has-checked:to-light-prop-gradient-end/[58%] 
+		has-checked:dark:from-dark-prop-gradient-start/[58%] has-checked:dark:to-dark-prop-gradient-end/[58%]`;
 
 		style += hoverStyle;
 		style += isChecked && checkedStyle;
@@ -26,7 +29,8 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 			cabelos: "top-6 lg:top-7 left-1 scale-[1.7]",
 			sobrancelhas: "top-22 left-8 lg:top-25 lg:left-10 scale-[4]",
 			olhos: "top-19 left-8 lg:top-22 lg:left-9 scale-[4]",
-			narizes: "top-18 left-11 lg:top-21 lg:left-13 scale-[5] filter dark:invert",
+			narizes:
+				"top-18 left-11 lg:top-21 lg:left-13 scale-[5] filter dark:invert",
 			bocas: "top-9 left-10 lg:top-10 lg:left-13 scale-[5] filter dark:invert",
 			camisas: "-top-5 left-[0.8%] lg:-top-5 lg:left-[0.5%] scale-[1.2]",
 		};
@@ -39,7 +43,7 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 			htmlFor={id}
 			className={handleLableStyle}
 			draggable={false}
-			initial={{opacity: 0, y: 15, scale: 1}}
+			initial={{opacity: 0, y: 10, scale: 1}}
 			whileInView={{opacity: 1, y: 0, transition: {duration: 0.4}}}
 			whileHover={{scale: 1.1}}
 			whileTap={{scale: 0.95, transition: {duration: 0.09}}}
@@ -63,6 +67,7 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 				loading="lazy"
 				decoding="async"
 			/>
+			{id === "prop-vazio" && <PiXBold size={"3rem"} className="text-light-text dark:text-dark-text"/>}
 		</motion.label>
 	);
 }
