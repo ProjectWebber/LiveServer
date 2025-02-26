@@ -1,7 +1,7 @@
 import {motion} from "motion/react";
 
 function LoadingScreen() {
-	const src = "/BetaTesting/logo-icon.webp";
+	const src = "/LiveServer/logo-icon.webp";
 
 	return (
 		<motion.div

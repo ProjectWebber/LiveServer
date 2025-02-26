@@ -25,13 +25,13 @@ function App() {
 						<Suspense fallback={<LoadingScreen />}>
 							<LayoutContainer>
 								<Routes>
-									<Route Component={HomePage} path="/BetaTesting/" />
+									<Route Component={HomePage} path="/LiveServer/" />
 									<Route
 										Component={CustomizerPage}
-										path="/BetaTesting/Customizer"
+										path="/LiveServer/Customizer"
 									/>
-									<Route Component={TestPage} path="/BetaTesting/TestPage" />
-									<Route Component={TestPageColorPackage} path="/BetaTesting/TestPageColorPackage" />
+									<Route Component={TestPage} path="/LiveServer/TestPage" />
+									<Route Component={TestPageColorPackage} path="/LiveServer/TestPageColorPackage" />
 								</Routes>
 							</LayoutContainer>
 						</Suspense>

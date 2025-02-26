@@ -30,7 +30,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Início"}
 							icon={<PiHouseFill size="1.4rem" />}
-							path={"/BetaTesting/"}
+							path={"/LiveServer/"}
 							ariaLabel="Pagina inicial"
 							handleClick={handleClick}
 						/>
@@ -38,7 +38,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Criar Personagem"}
 							icon={<PiUserPlusFill size="1.4rem" />}
-							path={"/BetaTesting/Customizer"}
+							path={"/LiveServer/Customizer"}
 							ariaLabel="Pagina de criação de personagens"
 							handleClick={handleClick}
 						/>
