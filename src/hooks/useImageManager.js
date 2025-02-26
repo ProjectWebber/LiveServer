@@ -2,11 +2,12 @@ import {Client, Storage} from "appwrite";
 import {useCallback, useEffect, useState, useMemo} from "react";
 
 // Configuração do Appwrite
-const PROJECT_ID = "67b909de0016b14256d8";
-const BUCKET_ID = "67b90a58001408625cc1";
+const PROJECT_ENDPOINT = import.meta.env.VITE_PROJECT_ENDPOINT;
+const PROJECT_ID = import.meta.env.VITE_PROJECT_ID;
+const BUCKET_ID = import.meta.env.VITE_BUCKET_ID;
 
 const client = new Client();
-client.setEndpoint("https://cloud.appwrite.io/v1").setProject(PROJECT_ID);
+client.setEndpoint(PROJECT_ENDPOINT).setProject(PROJECT_ID);
 
 const storage = new Storage(client);
 
@@ -63,7 +64,10 @@ function useImageCategorizer({images, categories}) {
 							id: "prop-vazio",
 							src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
 						};
-						newObject[bodyImage.id][category] = [propVazio, ...newObject[bodyImage.id][category]]
+						newObject[bodyImage.id][category] = [
+							propVazio,
+							...newObject[bodyImage.id][category],
+						];
 					}
 				});
 

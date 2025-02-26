@@ -1,9 +1,9 @@
-import {useEffect} from "react";
 import {useCallback, useMemo, useState} from "react";
 import {useLocalStorage} from "@hooks/useLocalStorage";
+import { defaultSelectedProps } from "@utils/defaultValues";
 
 function useSelectionManager() {
-	const {getLocalStorageData, setLocalStorageData} = useLocalStorage();
+	const {getData, overwriteData} = useLocalStorage();
 
 	const [currentCategory, setCurrentCategory] = useState("corpos");
 
@@ -13,39 +13,10 @@ function useSelectionManager() {
 	);
 
 	const [selectedProps, setSelectedProps] = useState(() => {
-		const response = getLocalStorageData({key: "selectedProps"});
+		const response = getData({key: "previousPortrait"});
 
 		if (response !== null) return response;
-		return {
-			corpos: {
-				id: "corpos-m-1",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/corpos-m-1/view?project=67b909de0016b14256d8",
-			},
-			cabelos: {
-				id: "prop-vazio",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-			},
-			sobrancelhas: {
-				id: "prop-vazio",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-			},
-			olhos: {
-				id: "prop-vazio",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-			},
-			narizes: {
-				id: "prop-vazio",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-			},
-			bocas: {
-				id: "prop-vazio",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-			},
-			camisas: {
-				id: "prop-vazio",
-				src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-			},
-		};
+		return defaultSelectedProps;
 	});
 	const memoizedSelectedProps = useMemo(() => selectedProps, [selectedProps]);
 
@@ -53,12 +24,12 @@ function useSelectionManager() {
 		(category, item) => {
 			setSelectedProps((prev) => {
 				const newObject = {...prev, [category]: item};
-				setLocalStorageData({key: "selectedProps", object: newObject});
+				overwriteData({key: "previousPortrait", data: newObject});
 
 				return newObject;
 			});
 		},
-		[setLocalStorageData],
+		[overwriteData],
 	);
 
 	const setSelectedCategory = useCallback((newCategory) => {
