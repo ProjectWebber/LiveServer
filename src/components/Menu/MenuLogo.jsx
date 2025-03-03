@@ -1,9 +1,10 @@
-import {useTheme} from "@contexts/ThemeContext";
-function MenuLogo() {
-	const {theme} = useTheme();
+import { useThemeStore } from "../../stores/ThemeStore";
 
-	const srcLight = "/LiveServer/logo-green-light.webp";
-	const srcDark = "/LiveServer/logo-green-dark.webp";
+function MenuLogo() {
+	const {theme} = useThemeStore();
+
+	const srcLight = "/BetaTesting/logo-green-light.webp";
+	const srcDark = "/BetaTesting/logo-green-dark.webp";
 
 	const handleSrc = (() => (theme !== "dark" ? srcLight : srcDark))();
 

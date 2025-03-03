@@ -1,6 +1,6 @@
 import {useCallback, useMemo, useState} from "react";
 import {useLocalStorage} from "@hooks/useLocalStorage";
-import { defaultSelectedProps } from "@utils/defaultValues";
+import {defaultSelectedProps} from "@utils/defaultValues";
 
 function useSelectionManager() {
 	const {getData, overwriteData} = useLocalStorage();
@@ -32,6 +32,10 @@ function useSelectionManager() {
 		[overwriteData],
 	);
 
+	const resetSelectedProps = useCallback(() => {
+		setSelectedProps(defaultSelectedProps);
+	}, []);
+
 	const setSelectedCategory = useCallback((newCategory) => {
 		setCurrentCategory(newCategory);
 	}, []);
@@ -41,6 +45,7 @@ function useSelectionManager() {
 		setSelectedProp,
 		selectedProps: memoizedSelectedProps,
 		setSelectedCategory,
+		resetSelectedProps,
 	};
 }
 

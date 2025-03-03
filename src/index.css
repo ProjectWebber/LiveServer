@@ -1,10 +1,13 @@
-@import "tailwindcss";
+@import "tailwindcss" important;
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
 	--font-specialelite: "SpecialElite", "sans-serif";
 
 	/*Dark Colors*/
 	--color-dark-header: #0e0e0e;
+	--color-dark-notification: #0e0e0e;
 	--color-dark-text: #f1f1f1;
 
 	--color-dark-bg-gradient-start: #030303;
@@ -15,6 +18,7 @@
 
 	/*Light Colors*/
 	--color-light-header: #ebebeb;
+	--color-light-notification: #ebebeb;
 	--color-light-text: #121212;
 
 	--color-light-bg-gradient-start: #fafafa;
@@ -25,12 +29,36 @@
 
 	--color-discord: #7289da;
 	--color-golden: #ffdf00;
-	--color-catarse: #17A338;
+	--color-catarse: #17a338;
 
-	--color-light-cta: #0E5D2A;
-	--color-dark-cta: #1FC057;
+	--color-darkprimary: #0e5d2a;
+	--color-primary: #1fc057;
+
+	--color-success: #1fc057;
+	--color-error: #f23d3d;
 
 	--animate-spin-slow: spin 290s linear infinite;
+}
+
+@utility shadow-notification {
+	--tw-shadow: var(--tw-shadow-color, #171717) 0px 4px 15px -6px;
+	box-shadow: var(--tw-shadow);
+}
+
+@layer components {
+	.notification {
+		@apply flex items-center min-w-60 w-fit max-w-80 min-h-13 h-fit pl-4 pr-8 py-2 
+		rounded-sm 
+		text-dark-text dark:text-light-text 
+		bg-dark-notification dark:bg-light-notification
+		shadow-notification;
+	}
+	.notification-success {
+		@apply bg-success!;
+	}
+	.notification-error {
+		@apply bg-error!;
+	}
 }
 
 @font-face {
@@ -39,8 +67,6 @@
 	font-weight: 4 00;
 	src: url("/fonts/specialelite.woff2") format("woff2");
 }
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 * {
 	user-select: none;
@@ -57,21 +83,21 @@
 ::-webkit-scrollbar {
 	width: 0.6rem;
 	height: 0.6rem;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
 	background: transparent;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
 	background: #888;
 	border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-	background: #555;
-  }
+}
 
-  img {
-	pointer-events: none
-  }
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+img {
+	pointer-events: none;
+}

@@ -1,4 +1,5 @@
 import {memo} from "react";
+import {motion} from "motion/react";
 
 // Icons
 import {
@@ -9,19 +10,22 @@ import {
 } from "react-icons/pi";
 import {FaDiscord, FaHandHoldingUsd} from "react-icons/fa";
 
-// Hooks
-import {useMenu} from "@contexts/MenuContext";
-
 // Components
 import MenuButton from "@components/Buttons/MenuButton";
 import MenuLogo from "./MenuLogo";
 import NavigationLink from "../NavigationLink";
 
+import {useMenuStore} from "../../stores/MenuStore";
+
 function MenuContainer() {
-	const {handleClick} = useMenu();
+	const {handleMenu} = useMenuStore();
 
 	return (
-		<section className="absolute flex flex-col justify-between h-[100dvh] w-screen bg-black/5  dark:bg-black/50 backdrop-blur-[8px] z-30 px-8 py-12">
+		<motion.section
+			className="absolute flex flex-col justify-between h-[100dvh] w-screen bg-white/50 dark:bg-black/50 backdrop-blur-[13px] z-30 px-8 py-12"
+			initial={{opacity: 0}}
+			animate={{opacity: 1}}
+		>
 			<MenuLogo />
 
 			<nav className="flex items-end w-full z-40">
@@ -30,17 +34,17 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Início"}
 							icon={<PiHouseFill size="1.4rem" />}
-							path={"/LiveServer/"}
+							path={"/BetaTesting/"}
 							ariaLabel="Pagina inicial"
-							handleClick={handleClick}
+							handleClick={handleMenu}
 						/>
 
 						<NavigationLink
 							text={"Criar Personagem"}
 							icon={<PiUserPlusFill size="1.4rem" />}
-							path={"/LiveServer/Customizer"}
+							path={"/BetaTesting/Customizer"}
 							ariaLabel="Pagina de criação de personagens"
-							handleClick={handleClick}
+							handleClick={handleMenu}
 						/>
 					</div>
 
@@ -82,7 +86,7 @@ function MenuContainer() {
 					/>
 				</section>
 			</nav>
-		</section>
+		</motion.section>
 	);
 }
 

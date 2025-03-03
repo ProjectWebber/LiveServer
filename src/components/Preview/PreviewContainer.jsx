@@ -1,5 +1,4 @@
 import {useCallback} from "react";
-import {AnimatePresence} from "motion/react";
 
 // Components
 import PreviewItem from "./PreviewItem";

@@ -8,13 +8,18 @@ function HeaderNavDesktop() {
 			<div className="flex gap-5">
 				<NavigationLink
 					text="Início"
-					path={"/LiveServer/"}
+					path={"/BetaTesting/"}
 					ariaLabel="Pagina de Início"
 				/>
 				<NavigationLink
 					text="Customizador"
-					path={"/LiveServer/Customizer"}
+					path={"/BetaTesting/Customizer"}
 					ariaLabel="Pagina do Customizador"
+				/>
+				<NavigationLink
+					text="Meus Portraits"
+					path={"/BetaTesting/Meus_Portraits"}
+					ariaLabel="Pagina de portraits salvos"
 				/>
 			</div>
 			|
@@ -23,14 +28,14 @@ function HeaderNavDesktop() {
 					text="Discord"
 					path={"https://discord.gg/KXJ8VGQYmT"}
 					ariaLabel="Pagina do Discord"
-					customStyle="underline underline-offset-5 text-light-cta dark:text-dark-cta "
+					customStyle="underline underline-offset-5 text-darkprimary dark:text-primary "
 					isExternalLink
 				/>
 				<NavigationLink
 					text="Feedback"
 					path={"https://forms.gle/bYoSxrikGCGA6ffK7"}
 					ariaLabel="Pagina de Feedback"
-					customStyle="underline underline-offset-5 text-light-cta dark:text-dark-cta "
+					customStyle="underline underline-offset-5 text-darkprimary dark:text-primary "
 					isExternalLink
 				/>
 
@@ -38,7 +43,7 @@ function HeaderNavDesktop() {
 					text="Apoiar"
 					path={"https://www.catarse.me/project_webber"}
 					ariaLabel="Pagina de Feedback"
-					customStyle="underline underline-offset-5 text-light-cta dark:text-dark-cta "
+					customStyle="underline underline-offset-5 text-darkprimary dark:text-primary "
 					isExternalLink
 				/>
 			</div>

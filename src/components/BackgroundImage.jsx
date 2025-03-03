@@ -4,8 +4,8 @@ function BackgroundImage() {
 	const {celCounter} = useSecrets();
 	const src =
 		celCounter !== 32
-			? "/LiveServer/bg-image-green.avif"
-			: "/LiveServer/cellbit-velho.avif";
+			? "/BetaTesting/bg-image-green.avif"
+			: "/BetaTesting/cellbit-velho.avif";
 
 	return (
 		<>

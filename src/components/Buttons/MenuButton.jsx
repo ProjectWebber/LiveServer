@@ -1,16 +1,16 @@
-import {useMenu} from "@contexts/MenuContext"
 import PropTypes from "prop-types"
 import {useCallback} from "react"
+import { useMenuStore } from "../../stores/MenuStore"
 
 function MenuButton({menuContent = <p>Sair do Menu</p>, customStyle = ""}) {
-	const {handleClick} = useMenu()
+	const {handleMenu} = useMenuStore()
 
 	const handleMenuStyle = useCallback(() => {
 		return `flex items-center gap-2 text-black dark:text-white cursor-pointer ${customStyle}`
 	}, [customStyle])
 
 	return (
-		<button onClick={handleClick} className={handleMenuStyle()}>
+		<button onClick={handleMenu} className={handleMenuStyle()}>
 			{menuContent}
 		</button>
 	)

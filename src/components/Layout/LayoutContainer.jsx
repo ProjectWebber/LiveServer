@@ -3,14 +3,13 @@ import MenuContainer from "@components/Menu/MenuContainer";
 import HeaderContainer from "@components/header/HeaderContainer";
 import BackgroundImage from "@components/BackgroundImage";
 
-// Hooks
-import {useMenu} from "@contexts/MenuContext";
+import { useMenuStore } from "../../stores/MenuStore";
 
 import PropTypes from "prop-types";
 
 
 function LayoutContainer({children}) {
-	const {isMenuOpen} = useMenu();
+	const {isMenuOpen} = useMenuStore();
 
 	return (
 		<main className="relative flex flex-col w-screen h-[100dvh] overflow-hidden bg-gradient-to-br from-light-bg-gradient-start to-light-bg-gradient-end dark:from-dark-bg-gradient-start dark:to-dark-bg-gradient-end transition-colors z-0">

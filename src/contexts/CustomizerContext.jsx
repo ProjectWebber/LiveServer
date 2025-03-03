@@ -6,6 +6,7 @@ import useImageManager from "@hooks/useImageManager";
 import useSelectionManager from "@hooks/useSelectionManager";
 import useGridData from "@hooks/useGridData";
 
+
 // Declarations
 const CustomizerContext = createContext();
 
@@ -17,6 +18,7 @@ function CustomizerProvider({children}) {
 		setSelectedProp,
 		selectedProps,
 		setSelectedCategory,
+		resetSelectedProps,
 	} = useSelectionManager();
 
 	const {gridData} = useGridData(
@@ -33,6 +35,7 @@ function CustomizerProvider({children}) {
 				setSelectedProp,
 				selectedProps,
 				setSelectedCategory,
+				resetSelectedProps,
 				categories,
 				gridData,
 			}}
