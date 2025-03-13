@@ -8,17 +8,17 @@ function HeaderNavDesktop() {
 			<div className="flex gap-5">
 				<NavigationLink
 					text="Início"
-					path={"/BetaTesting/"}
+					path={"/LiveServer/"}
 					ariaLabel="Pagina de Início"
 				/>
 				<NavigationLink
 					text="Customizador"
-					path={"/BetaTesting/Customizer"}
+					path={"/LiveServer/Customizer"}
 					ariaLabel="Pagina do Customizador"
 				/>
 				<NavigationLink
 					text="Meus Personagens"
-					path={"/BetaTesting/MeusPersonagens"}
+					path={"/LiveServer/MeusPersonagens"}
 					ariaLabel="Pagina de personagens salvos"
 				/>
 			</div>
