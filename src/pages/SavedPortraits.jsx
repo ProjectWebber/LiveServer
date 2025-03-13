@@ -11,7 +11,7 @@ function SavedPortraits() {
 				<span>Portraits salvos...</span>
 			) : (
 				<section className="flex items-center justify-center w-full h-full">
-					<span className="text-xl text-gray-500">Nenhum portrait salvo...</span>
+					<span className="text-xl text-gray-500">Em breve...</span>
 				</section>
 			)}
 		</section>

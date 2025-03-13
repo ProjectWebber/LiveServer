@@ -1,32 +1,32 @@
+const PROJECT_ID = import.meta.env.VITE_PROJECT_ID;
+const BUCKET_ID = import.meta.env.VITE_BUCKET_ID;
+
+const propVazio = {
+	id: "prop-vazio",
+	src: `https://cloud.appwrite.io/v1/storage/buckets/${BUCKET_ID}/files/prop-vazio/view?project=${PROJECT_ID}`,
+};
+
 const defaultSelectedProps = {
 	corpos: {
 		id: "corpos-m-1",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/corpos-m-1/view?project=67bf20010007bf587a10",
+		src: `https://cloud.appwrite.io/v1/storage/buckets/${BUCKET_ID}/files/corpos-m-1/view?project=${PROJECT_ID}`,
 	},
-	cabelos: {
-		id: "prop-vazio",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/prop-vazio/view?project=67bf20010007bf587a10",
-	},
-	sobrancelhas: {
-		id: "prop-vazio",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/prop-vazio/view?project=67bf20010007bf587a10",
-	},
-	olhos: {
-		id: "prop-vazio",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/prop-vazio/view?project=67bf20010007bf587a10",
-	},
-	narizes: {
-		id: "prop-vazio",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/prop-vazio/view?project=67bf20010007bf587a10",
-	},
-	bocas: {
-		id: "prop-vazio",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/prop-vazio/view?project=67bf20010007bf587a10",
-	},
-	camisas: {
-		id: "prop-vazio",
-		src: "https://cloud.appwrite.io/v1/storage/buckets/67bf2049002d7c8e5da9/files/prop-vazio/view?project=67bf20010007bf587a10",
-	},
+	cabelos: {...propVazio},
+	sobrancelhas: {...propVazio},
+	olhos: {...propVazio},
+	narizes: {...propVazio},
+	bocas: {...propVazio},
+	camisas: {...propVazio},
 };
 
-export {defaultSelectedProps};
+const categories = [
+	"corpos",
+	"sobrancelhas",
+	"olhos",
+	"narizes",
+	"bocas",
+	"camisas",
+	"cabelos",
+];
+
+export {defaultSelectedProps, propVazio, categories};

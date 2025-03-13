@@ -1,6 +1,10 @@
-import {useCallback, useMemo, useState} from "react";
+import {useCallback, useMemo, useState, useEffect} from "react";
 import {useLocalStorage} from "@hooks/useLocalStorage";
 import {defaultSelectedProps} from "@utils/defaultValues";
+
+const PROJECT_ID = import.meta.env.VITE_PROJECT_ID;
+const BUCKET_ID = import.meta.env.VITE_BUCKET_ID;
+let imageLinkTemplate = `https://cloud.appwrite.io/v1/storage/buckets/${BUCKET_ID}/files/$IMAGE_ID/view?project=${PROJECT_ID}`;
 
 function useSelectionManager() {
 	const {getData, overwriteData} = useLocalStorage();
@@ -13,24 +17,42 @@ function useSelectionManager() {
 	);
 
 	const [selectedProps, setSelectedProps] = useState(() => {
-		const response = getData({key: "previousPortrait"});
+		const localStorageData = getData({key: "previousPortrait"});
 
-		if (response !== null) return response;
+		if (localStorageData !== null) {
+			let objectEntries = Object.entries(localStorageData);
+			let newObject = Object.fromEntries(
+				objectEntries.map((entry) => {
+					let categoryEntryID = Object.entries(entry[1])[0];
+
+					return [
+						entry[0],
+						Object.fromEntries([
+							categoryEntryID,
+							[
+								"src",
+								imageLinkTemplate.replace("$IMAGE_ID", categoryEntryID[1]),
+							],
+						]),
+					];
+				}),
+			);
+
+			return newObject;
+		}
 		return defaultSelectedProps;
 	});
 	const memoizedSelectedProps = useMemo(() => selectedProps, [selectedProps]);
 
-	const setSelectedProp = useCallback(
-		(category, item) => {
-			setSelectedProps((prev) => {
-				const newObject = {...prev, [category]: item};
-				overwriteData({key: "previousPortrait", data: newObject});
+	useEffect(() => {
+		overwriteData({key: "previousPortrait", data: memoizedSelectedProps});
+	}, [overwriteData, memoizedSelectedProps]);
 
-				return newObject;
-			});
-		},
-		[overwriteData],
-	);
+	const setSelectedProp = useCallback((category, item) => {
+		setSelectedProps((prev) => {
+			return {...prev, [category]: item};
+		});
+	}, []);
 
 	const resetSelectedProps = useCallback(() => {
 		setSelectedProps(defaultSelectedProps);

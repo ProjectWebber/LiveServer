@@ -17,9 +17,9 @@ function HeaderNavDesktop() {
 					ariaLabel="Pagina do Customizador"
 				/>
 				<NavigationLink
-					text="Meus Portraits"
-					path={"/BetaTesting/Meus_Portraits"}
-					ariaLabel="Pagina de portraits salvos"
+					text="Meus Personagens"
+					path={"/BetaTesting/MeusPersonagens"}
+					ariaLabel="Pagina de personagens salvos"
 				/>
 			</div>
 			|

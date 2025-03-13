@@ -38,7 +38,7 @@ function App() {
 							/>
 							<Route
 								Component={SavedPortraits}
-								path="/BetaTesting/Meus_Portraits"
+								path="/BetaTesting/MeusPersonagens"
 							/>
 							<Route Component={TestPage} path="/BetaTesting/TestPage" />
 							<Route

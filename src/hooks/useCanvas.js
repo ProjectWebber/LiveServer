@@ -44,9 +44,9 @@ function useCanvas() {
 			clearCanvas({ctx, canvasWidth, canvasHeight});
 
 			// Desenhar fundo Branco
-			ctx.fillStyle = "white";
+			/*ctx.fillStyle = "white";
 			ctx.rect(0, 0, canvasWidth, canvasHeight);
-			ctx.fill();
+			ctx.fill();*/
 
 			// Desenhar imagens
 			categories.forEach((category) => {

@@ -1,5 +1,6 @@
 import {Client, Storage} from "appwrite";
 import {useCallback, useEffect, useState, useMemo} from "react";
+import {propVazio, categories} from '@utils/defaultValues'
 
 // Configuração do Appwrite
 const PROJECT_ENDPOINT = import.meta.env.VITE_PROJECT_ENDPOINT;
@@ -60,10 +61,7 @@ function useImageCategorizer({images, categories}) {
 						.filter((image) => image.id.startsWith(category));
 
 					if (category !== "corpos") {
-						const propVazio = {
-							id: "prop-vazio",
-							src: "https://cloud.appwrite.io/v1/storage/buckets/67b90a58001408625cc1/files/prop-vazio/view?project=67b909de0016b14256d8",
-						};
+						
 						newObject[bodyImage.id][category] = [
 							propVazio,
 							...newObject[bodyImage.id][category],
@@ -85,19 +83,6 @@ function useImageCategorizer({images, categories}) {
 
 function useImageManager() {
 	const {images} = useImageFetcher();
-
-	const categories = useMemo(
-		() => [
-			"corpos",
-			"sobrancelhas",
-			"olhos",
-			"narizes",
-			"bocas",
-			"camisas",
-			"cabelos",
-		],
-		[],
-	);
 
 	const {organizedImages} = useImageCategorizer({images, categories});
 

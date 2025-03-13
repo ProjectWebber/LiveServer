@@ -9,6 +9,7 @@ import {
 	PiUserPlusFill,
 } from "react-icons/pi";
 import {FaDiscord, FaHandHoldingUsd} from "react-icons/fa";
+import { MdFolderShared } from "react-icons/md";
 
 // Components
 import MenuButton from "@components/Buttons/MenuButton";
@@ -44,6 +45,14 @@ function MenuContainer() {
 							icon={<PiUserPlusFill size="1.4rem" />}
 							path={"/BetaTesting/Customizer"}
 							ariaLabel="Pagina de criação de personagens"
+							handleClick={handleMenu}
+						/>
+
+						<NavigationLink
+							text={"Meus Personagens"}
+							icon={<MdFolderShared size="1.4rem" />}
+							path={"/BetaTesting/MeusPersonagens"}
+							ariaLabel="Pagina de personagens salvos"
 							handleClick={handleMenu}
 						/>
 					</div>
