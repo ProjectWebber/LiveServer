@@ -1,5 +1,11 @@
 @import "tailwindcss" important;
 
+@keyframes loadingAnimation {
+	0% {opacity: 40%;}
+	50% {opacity: 65%;}
+	100% {opacity: 40%;}
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -38,6 +44,7 @@
 	--color-error: #f23d3d;
 
 	--animate-spin-slow: spin 290s linear infinite;
+	--animate-loading: loadingAnimation 1s linear infinite;
 }
 
 @utility shadow-notification {

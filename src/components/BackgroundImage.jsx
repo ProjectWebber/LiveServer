@@ -3,9 +3,7 @@ import {useSecrets} from "@contexts/SecretsContext";
 function BackgroundImage() {
 	const {celCounter} = useSecrets();
 	const src =
-		celCounter !== 32
-			? "/LiveServer/bg-image-green.avif"
-			: "/LiveServer/cellbit-velho.avif";
+		celCounter !== 32 ? "//bg-image-green.avif" : "//cellbit-velho.avif";
 
 	return (
 		<>

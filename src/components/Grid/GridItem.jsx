@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import {useMemo, useCallback} from "react";
 import {motion} from "motion/react";
-import { PiXBold } from "react-icons/pi";
+import {PiXBold} from "react-icons/pi";
+import {useRef} from "react";
+import {useEffect} from "react";
+import {useState} from "react";
 
 function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
+	const [isLoading, setIsLoading] = useState(true);
 	const isChecked = useMemo(() => checkedItemId === id, [checkedItemId, id]);
 
 	const handleLableStyle = useCallback(() => {
@@ -18,10 +22,15 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 		const checkedStyle = ` has-checked:from-light-prop-gradient-start/[58%] has-checked:to-light-prop-gradient-end/[58%] 
 		has-checked:dark:from-dark-prop-gradient-start/[58%] has-checked:dark:to-dark-prop-gradient-end/[58%]`;
 
+		const loadingStyle = ` ${
+			isLoading ? (id !== "prop-vazio" ? "animate-loading" : "") : ""
+		}`;
+
+		style += loadingStyle;
 		style += hoverStyle;
 		style += isChecked && checkedStyle;
 		return style;
-	}, [isChecked])();
+	}, [isChecked, isLoading])();
 
 	const handleImgStyle = useCallback(() => {
 		const categoryZoomStyle = {
@@ -37,6 +46,25 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 
 		return categoryZoomStyle[name];
 	}, [name]);
+
+	const image = (
+		<img
+			src={src}
+			alt={alt}
+			className={`${
+				isLoading && "opacity-0"
+			} w-1/1 absolute transition-all ${handleImgStyle()}`}
+			draggable={false}
+			loading="lazy"
+			decoding="async"
+			style={{imageRendering: "smooth"}}
+			onLoad={(e) => {
+				if (e.target.complete) {
+					setIsLoading(false);
+				}
+			}}
+		/>
+	);
 
 	return (
 		<motion.label
@@ -59,15 +87,13 @@ function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {
 					setCheckedItems(name, {id: id, src: src});
 				}}
 			/>
-			<img
-				src={src}
-				alt={alt}
-				className={`w-1/1 absolute ${handleImgStyle()}`}
-				draggable={false}
-				loading="lazy"
-				decoding="async"
-			/>
-			{id === "prop-vazio" && <PiXBold size={"3rem"} className="text-light-text dark:text-dark-text"/>}
+			{image}
+			{id === "prop-vazio" && (
+				<PiXBold
+					size={"3rem"}
+					className="text-light-text dark:text-dark-text"
+				/>
+			)}
 		</motion.label>
 	);
 }

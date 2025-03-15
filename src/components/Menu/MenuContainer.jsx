@@ -35,7 +35,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Início"}
 							icon={<PiHouseFill size="1.4rem" />}
-							path={"/LiveServer/"}
+							path={"//"}
 							ariaLabel="Pagina inicial"
 							handleClick={handleMenu}
 						/>
@@ -43,7 +43,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Criar Personagem"}
 							icon={<PiUserPlusFill size="1.4rem" />}
-							path={"/LiveServer/Customizer"}
+							path={"//Customizer"}
 							ariaLabel="Pagina de criação de personagens"
 							handleClick={handleMenu}
 						/>
@@ -51,7 +51,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Meus Personagens"}
 							icon={<MdFolderShared size="1.4rem" />}
-							path={"/LiveServer/MeusPersonagens"}
+							path={"//MeusPersonagens"}
 							ariaLabel="Pagina de personagens salvos"
 							handleClick={handleMenu}
 						/>
