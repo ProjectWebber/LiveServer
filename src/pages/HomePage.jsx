@@ -1,8 +1,8 @@
-import NavigationLink from "../components/NavigationLink";
-import PageTransitionAnimation from "../components/PageTransitionAnimation";
+import NavigationLink from "@components/NavigationLink";
+import PageTransitionAnimation from "@components/PageTransitionAnimation";
 
 function HomePage() {
-	const heroImageSrc = "//home-image.avif";
+	const heroImageSrc = "/home-image.avif";
 
 	return (
 		<PageTransitionAnimation>
@@ -25,7 +25,7 @@ function HomePage() {
 					</div>
 					<NavigationLink
 						text={"Criar personagem"}
-						path="//Customizer"
+						path="/Customizer"
 						ariaLabel="Ir para o customizador"
 						customStyle=" w-fit bg-primary py-3 px-5 rounded-4xl text-light-text! dark:text-dark-text! shadow-button text-md md:text-lg"
 					/>

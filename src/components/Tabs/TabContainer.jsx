@@ -1,21 +1,17 @@
-// Components
-import Tab from "./Tab"
+//Components
+import Tab from "./Tab";
 
-// Utils
-import captalize from "@utils/captalize"
+//Utils
+import captalize from "@utils/captalize";
 
-import PropTypes from "prop-types"
-import {motion} from "motion/react"
+import PropTypes from "prop-types";
+import {motion} from "motion/react";
 
-// Hooks
-import {useCustomizer} from "@contexts/CustomizerContext"
+//Hooks
+import {useCustomizer} from "@contexts/CustomizerContext";
 
 function TabContainer() {
-	const {
-		selectedCategory,
-		setSelectedCategory,
-		categories
-	} = useCustomizer()
+	const {selectedCategory, setSelectedCategory, categories} = useCustomizer();
 
 	return (
 		<motion.nav className="relative flex gap-6 lg:gap-8 lg:mb-2 w-1/1 overflow-x-auto">
@@ -28,10 +24,10 @@ function TabContainer() {
 						checkedItemId={selectedCategory}
 						setCheckedItems={setSelectedCategory}
 					/>
-				)
+				);
 			})}
 		</motion.nav>
-	)
+	);
 }
 
-export default TabContainer
+export default TabContainer;

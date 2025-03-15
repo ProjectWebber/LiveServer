@@ -1,18 +1,18 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {lazy, Suspense, useEffect} from "react";
 
-// Pages
+//Pages
 const CustomizerPage = lazy(() => import("@pages/CustomizerPage"));
 const HomePage = lazy(() => import("@pages/HomePage"));
 const SavedPortraits = lazy(() => import("@pages/SavedPortraits"));
-const TestPage = lazy(() => import("@pages/TestPage"));
-const TestPageColorPackage = lazy(() => import("@pages/TestPageColorPackage"));
+//const TestPage = lazy(() => import("@pages/TestPage"));
+//const TestPageColorPackage = lazy(() => import("@pages/TestPageColorPackage"));
 
-// Components
+//Components
 import LayoutContainer from "@components/Layout/LayoutContainer";
 import LoadingScreen from "@components/LoadingScreen";
 
-// Contexts
+//Contexts
 import {SecretsProvider} from "@contexts/SecretsContext";
 import {useThemeStore} from "./stores/ThemeStore";
 
@@ -31,14 +31,14 @@ function App() {
 				<Suspense fallback={<LoadingScreen />}>
 					<LayoutContainer>
 						<Routes>
-							<Route Component={HomePage} path="//" />
-							<Route Component={CustomizerPage} path="//Customizer" />
-							<Route Component={SavedPortraits} path="//MeusPersonagens" />
-							<Route Component={TestPage} path="//TestPage" />
+							<Route Component={HomePage} path="/" />
+							<Route Component={CustomizerPage} path="/Customizer" />
+							<Route Component={SavedPortraits} path="/MeusPersonagens" />
+							{/*<Route Component={TestPage} path="/TestPage" />
 							<Route
 								Component={TestPageColorPackage}
-								path="//TestPageColorPackage"
-							/>
+								path="/TestPageColorPackage"
+							/>*/}
 						</Routes>
 					</LayoutContainer>
 				</Suspense>

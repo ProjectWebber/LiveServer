@@ -1,9 +1,9 @@
 import {useCallback} from "react";
 
-// Components
+//Components
 import PreviewItem from "./PreviewItem";
 
-// Context
+//Context
 import {useCustomizer} from "@contexts/CustomizerContext";
 
 function PreviewContianer() {

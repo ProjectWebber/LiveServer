@@ -3,7 +3,7 @@ import GridContainer from "./Grid/GridContainer";
 import GridItem from "./Grid/GridItem";
 import TabContainer from "./Tabs/TabContainer";
 
-// Contexts
+//Contexts
 import {useCustomizer} from "@contexts/CustomizerContext";
 
 function SelectionContainer() {

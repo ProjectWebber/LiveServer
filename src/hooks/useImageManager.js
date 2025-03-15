@@ -1,8 +1,8 @@
 import {Client, Storage} from "appwrite";
 import {useCallback, useEffect, useState, useMemo} from "react";
-import {propVazio, categories} from '@utils/defaultValues'
+import {propVazio, categories} from "@utils/defaultValues";
 
-// Configuração do Appwrite
+//Configuração do Appwrite
 const PROJECT_ENDPOINT = import.meta.env.VITE_PROJECT_ENDPOINT;
 const PROJECT_ID = import.meta.env.VITE_PROJECT_ID;
 const BUCKET_ID = import.meta.env.VITE_BUCKET_ID;
@@ -61,7 +61,6 @@ function useImageCategorizer({images, categories}) {
 						.filter((image) => image.id.startsWith(category));
 
 					if (category !== "corpos") {
-						
 						newObject[bodyImage.id][category] = [
 							propVazio,
 							...newObject[bodyImage.id][category],

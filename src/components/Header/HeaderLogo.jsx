@@ -1,12 +1,12 @@
 import {useSecrets} from "@contexts/SecretsContext";
-import {useThemeStore} from "../../stores/ThemeStore";
+import {useThemeStore} from "@stores/ThemeStore";
 
 function HeaderLogo() {
 	const {theme} = useThemeStore();
 	const {handleCelCounter} = useSecrets();
 
-	const srcLight = "//logo-green-light.webp";
-	const srcDark = "//logo-green-dark.webp";
+	const srcLight = "/logo-green-light.webp";
+	const srcDark = "/logo-green-dark.webp";
 
 	const handleSrc = () => (theme !== "dark" ? srcLight : srcDark);
 

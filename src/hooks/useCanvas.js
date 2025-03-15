@@ -40,20 +40,20 @@ function useCanvas() {
 			const canvasWidth = canvas.width;
 			const canvasHeight = canvas.height;
 
-			// Limpa o fundo pra n acumular
+			///Limpa o fundo pra n acumular
 			clearCanvas({ctx, canvasWidth, canvasHeight});
 
-			// Desenhar fundo Branco
+			///Desenhar fundo Branco
 			/*ctx.fillStyle = "white";
 			ctx.rect(0, 0, canvasWidth, canvasHeight);
 			ctx.fill();*/
 
-			// Desenhar imagens
+			///Desenhar imagens
 			categories.forEach((category) => {
 				drawImage({category, ctx, canvasWidth, canvasHeight});
 			});
 
-			// Download
+			///Download
 			download({canvas});
 		},
 		[clearCanvas, drawImage],

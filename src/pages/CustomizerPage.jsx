@@ -4,7 +4,7 @@ import PreviewContainer from "@components/Preview/PreviewContainer";
 import BottomOptionsContainer from "@components/BottomOptions/BottomOptionsContainer";
 import PageTransitionAnimation from "@components/PageTransitionAnimation";
 
-// Contexts
+//Contexts
 import {CustomizerProvider} from "@contexts/CustomizerContext";
 
 function CustomizerPage() {

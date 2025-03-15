@@ -1,7 +1,7 @@
 import {PiListBold} from "react-icons/pi";
 import {useMediaQuery} from "react-responsive";
 
-// Components
+//Components
 import HeaderLogo from "./HeaderLogo";
 import MenuButton from "../Buttons/MenuButton";
 import ThemeButton from "../buttons/ThemeButton";

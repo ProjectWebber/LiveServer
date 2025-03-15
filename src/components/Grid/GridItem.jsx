@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import {useMemo, useCallback} from "react";
 import {motion} from "motion/react";
 import {PiXBold} from "react-icons/pi";
-import {useRef} from "react";
-import {useEffect} from "react";
 import {useState} from "react";
 
 function GridItem({src, alt, id, name, checkedItemId, setCheckedItems}) {

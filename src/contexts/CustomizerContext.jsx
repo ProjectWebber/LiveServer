@@ -1,13 +1,12 @@
 import {useContext, createContext} from "react";
 import PropTypes from "prop-types";
 
-// Custom Hooks
+//Custom Hooks
 import useImageManager from "@hooks/useImageManager";
 import useSelectionManager from "@hooks/useSelectionManager";
 import useGridData from "@hooks/useGridData";
 
-
-// Declarations
+//Declarations
 const CustomizerContext = createContext();
 
 function CustomizerProvider({children}) {

@@ -1,7 +1,7 @@
 import {memo} from "react";
 import {motion} from "motion/react";
 
-// Icons
+//Icons
 import {
 	PiXBold,
 	PiHouseFill,
@@ -11,7 +11,7 @@ import {
 import {FaDiscord, FaHandHoldingUsd} from "react-icons/fa";
 import {MdFolderShared} from "react-icons/md";
 
-// Components
+//Components
 import MenuButton from "@components/Buttons/MenuButton";
 import MenuLogo from "./MenuLogo";
 import NavigationLink from "../NavigationLink";
@@ -35,7 +35,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Início"}
 							icon={<PiHouseFill size="1.4rem" />}
-							path={"//"}
+							path={"/"}
 							ariaLabel="Pagina inicial"
 							handleClick={handleMenu}
 						/>
@@ -43,7 +43,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Criar Personagem"}
 							icon={<PiUserPlusFill size="1.4rem" />}
-							path={"//Customizer"}
+							path={"/Customizer"}
 							ariaLabel="Pagina de criação de personagens"
 							handleClick={handleMenu}
 						/>
@@ -51,7 +51,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Meus Personagens"}
 							icon={<MdFolderShared size="1.4rem" />}
-							path={"//MeusPersonagens"}
+							path={"/MeusPersonagens"}
 							ariaLabel="Pagina de personagens salvos"
 							handleClick={handleMenu}
 						/>
@@ -70,7 +70,7 @@ function MenuContainer() {
 					<NavigationLink
 						text={"Discord"}
 						icon={<FaDiscord size="1.4rem" />}
-						path="https://discord.gg/KXJ8VGQYmT"
+						path="https:/discord.gg/KXJ8VGQYmT"
 						customStyle="text-discord"
 						ariaLabel="Pagina do discord"
 						isExternalLink
@@ -79,7 +79,7 @@ function MenuContainer() {
 					<NavigationLink
 						text={"Feedback"}
 						icon={<PiChatCenteredDotsFill size="1.4rem" />}
-						path="https://forms.gle/bYoSxrikGCGA6ffK7"
+						path="https:/forms.gle/bYoSxrikGCGA6ffK7"
 						customStyle="text-golden"
 						ariaLabel="Pagina de feedback"
 						isExternalLink
@@ -88,7 +88,7 @@ function MenuContainer() {
 					<NavigationLink
 						text={"Apoiar"}
 						icon={<FaHandHoldingUsd size="1.4rem" />}
-						path="https://www.catarse.me/project_webber"
+						path="https:/www.catarse.me/project_webber"
 						customStyle="text-catarse"
 						ariaLabel="Pagina do catarse"
 						isExternalLink
