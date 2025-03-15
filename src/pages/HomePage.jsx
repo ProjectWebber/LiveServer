@@ -25,7 +25,7 @@ function HomePage() {
 					</div>
 					<NavigationLink
 						text={"Criar personagem"}
-						path="/Customizer"
+						path="/Customizador"
 						ariaLabel="Ir para o customizador"
 						customStyle=" w-fit bg-primary py-3 px-5 rounded-4xl text-light-text! dark:text-dark-text! shadow-button text-md md:text-lg"
 					/>

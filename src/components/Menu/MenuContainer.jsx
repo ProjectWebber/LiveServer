@@ -23,7 +23,7 @@ function MenuContainer() {
 
 	return (
 		<motion.section
-			className="absolute flex flex-col justify-between h-[100dvh] w-screen bg-white/50 dark:bg-black/50 backdrop-blur-[13px] z-30 px-8 py-12"
+			className="absolute flex flex-col justify-between h-[100dvh] w-screen bg-white/65 dark:bg-black/65 backdrop-blur-[16px] z-30 px-8 py-12"
 			initial={{opacity: 0}}
 			animate={{opacity: 1}}
 		>
@@ -43,7 +43,7 @@ function MenuContainer() {
 						<NavigationLink
 							text={"Criar Personagem"}
 							icon={<PiUserPlusFill size="1.4rem" />}
-							path={"/Customizer"}
+							path={"/Customizador"}
 							ariaLabel="Pagina de criação de personagens"
 							handleClick={handleMenu}
 						/>
@@ -80,7 +80,7 @@ function MenuContainer() {
 						text={"Feedback"}
 						icon={<PiChatCenteredDotsFill size="1.4rem" />}
 						path="https:/forms.gle/bYoSxrikGCGA6ffK7"
-						customStyle="text-golden"
+						customStyle="text-golden brightness-75 saturate-250 dark:brightness-100 dark:saturate-100"
 						ariaLabel="Pagina de feedback"
 						isExternalLink
 					/>

@@ -32,7 +32,7 @@ function App() {
 					<LayoutContainer>
 						<Routes>
 							<Route Component={HomePage} path="/" />
-							<Route Component={CustomizerPage} path="/Customizer" />
+							<Route Component={CustomizerPage} path="/Customizador" />
 							<Route Component={SavedPortraits} path="/MeusPersonagens" />
 							{/*<Route Component={TestPage} path="/TestPage" />
 							<Route

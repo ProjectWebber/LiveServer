@@ -8,9 +8,8 @@ function NavigationLink({
 	customStyle = "text-light-text dark:text-dark-text",
 	ariaLabel = "",
 	isExternalLink = false,
-	handleClick = () => {}
+	handleClick = () => {},
 }) {
-
 	return (
 		<>
 			{isExternalLink ? (
@@ -30,7 +29,13 @@ function NavigationLink({
 					aria-label={ariaLabel}
 					role="link"
 					onClick={handleClick}
-					className={`flex items-center gap-1 font-medium ${customStyle}`}
+					className={({isActive}) =>
+						`flex items-center gap-1 font-medium ${
+							isActive
+								? "text-light-text! dark:text-dark-text!"
+								: "text-light-text/60 dark:text-dark-text/60"
+						} ${customStyle}`
+					}
 				>
 					{icon}
 					{text}
@@ -47,7 +52,7 @@ NavigationLink.propTypes = {
 	path: PropTypes.string.isRequired,
 	ariaLabel: PropTypes.string.isRequired,
 	isExternalLink: PropTypes.bool,
-	handleClick: PropTypes.func
+	handleClick: PropTypes.func,
 };
 
 export default NavigationLink;

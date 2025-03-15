@@ -4,7 +4,6 @@ import Tab from "./Tab";
 //Utils
 import captalize from "@utils/captalize";
 
-import PropTypes from "prop-types";
 import {motion} from "motion/react";
 
 //Hooks

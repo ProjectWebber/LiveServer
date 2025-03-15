@@ -6,14 +6,10 @@ function HeaderNavDesktop() {
 	return (
 		<nav className="flex gap-8 text-light-text dark:text-dark-text">
 			<div className="flex gap-5">
-				<NavigationLink
-					text="Início"
-					path={"/"}
-					ariaLabel="Pagina de Início"
-				/>
+				<NavigationLink text="Início" path={"/"} ariaLabel="Pagina de Início" />
 				<NavigationLink
 					text="Customizador"
-					path={"/Customizer"}
+					path={"/Customizador"}
 					ariaLabel="Pagina do Customizador"
 				/>
 				<NavigationLink
